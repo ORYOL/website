@@ -1,0 +1,450 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>ORYOL — Website coming soon</title>
+
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+      background: #ffffff;
+      color: #202020;
+      font-family: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    body.dark {
+      background: #171717;
+      color: #f2f2f2;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 620px;
+      text-align: center;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 64px;
+    }
+
+    .logo {
+      width: 76px;
+      height: 76px;
+      display: block;
+    }
+
+    .brand-name {
+      font-size: 44px;
+      font-weight: 600;
+      letter-spacing: 3px;
+    }
+
+    .status {
+      margin-bottom: 22px;
+      color: #888888;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+    }
+
+    body.dark .status {
+      color: #999999;
+    }
+
+    h1 {
+      margin: 0 0 20px;
+      font-size: clamp(42px, 8vw, 64px);
+      line-height: 1.05;
+      font-weight: 500;
+      letter-spacing: -2px;
+    }
+
+    .description {
+      max-width: 440px;
+      margin: 0 auto;
+      color: #777777;
+      font-size: 17px;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    body.dark .description {
+      color: #aaaaaa;
+    }
+
+    .progress {
+      width: 100%;
+      height: 2px;
+      margin: 52px auto 34px;
+      overflow: hidden;
+      background: #eeeeee;
+    }
+
+    body.dark .progress {
+      background: #383838;
+    }
+
+    .progress-line {
+      width: 35%;
+      height: 100%;
+      background: #333333;
+      animation: loading 3s ease-in-out infinite;
+    }
+
+    body.dark .progress-line {
+      background: #dddddd;
+    }
+
+    @keyframes loading {
+      0% {
+        transform: translateX(-110%);
+      }
+      50% {
+        transform: translateX(190%);
+      }
+      100% {
+        transform: translateX(310%);
+      }
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      margin-bottom: 28px;
+      background: #eeeeee;
+    }
+
+    body.dark .divider {
+      background: #383838;
+    }
+
+    .language-label {
+      margin-bottom: 16px;
+      color: #999999;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    .languages {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .language-button {
+      min-width: 76px;
+      padding: 9px 13px;
+      border: 1px solid #e8e8e8;
+      border-radius: 2px;
+      background: #ffffff;
+      color: #666666;
+      font-family: inherit;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    body.dark .language-button {
+      border-color: #444444;
+      background: #171717;
+      color: #bbbbbb;
+    }
+
+    .language-button:hover {
+      border-color: #333333;
+      color: #202020;
+    }
+
+    body.dark .language-button:hover {
+      border-color: #aaaaaa;
+      color: #ffffff;
+    }
+
+    .language-button.active {
+      border-color: #333333;
+      background: #333333;
+      color: #ffffff;
+    }
+
+    body.dark .language-button.active {
+      border-color: #eeeeee;
+      background: #eeeeee;
+      color: #171717;
+    }
+
+    footer {
+      margin-top: 52px;
+      color: #aaaaaa;
+      font-size: 12px;
+    }
+
+    body.dark footer {
+      color: #777777;
+    }
+
+    [dir="rtl"] .description {
+      line-height: 1.9;
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding: 8px 14px;
+      border: 1px solid #e8e8e8;
+      border-radius: 2px;
+      background: #ffffff;
+      color: #666666;
+      font-family: inherit;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .theme-toggle:hover {
+      border-color: #333333;
+      color: #202020;
+    }
+
+    body.dark .theme-toggle {
+      border-color: #444444;
+      background: #171717;
+      color: #bbbbbb;
+    }
+
+    body.dark .theme-toggle:hover {
+      border-color: #aaaaaa;
+      color: #ffffff;
+    }
+
+    @media (max-width: 480px) {
+      .brand {
+        margin-bottom: 52px;
+      }
+
+      .languages {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 260px;
+        margin: 0 auto;
+      }
+
+      .language-button {
+        width: 100%;
+      }
+
+      .progress {
+        margin-top: 42px;
+      }
+
+      footer {
+        margin-top: 42px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <div class="brand">
+      <img class="logo" src="logo.svg" alt="">
+      <span class="brand-name">ORYOL</span>
+    </div>
+
+    <div class="status" id="status">UNDER CONSTRUCTION</div>
+
+    <h1 id="headline">Website<br>coming soon.</h1>
+
+    <p class="description" id="description">
+      We're working on our website and it will be available soon.
+      Please check back later.
+    </p>
+
+    <div class="progress">
+      <div class="progress-line"></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="language-label" id="language-label">
+      SELECT LANGUAGE
+    </div>
+
+    <div class="languages">
+      <button class="language-button" data-lang="en">English</button>
+      <button class="language-button" data-lang="ar">العربية</button>
+      <button class="language-button" data-lang="zh">中文</button>
+      <button class="language-button" data-lang="fr">Français</button>
+      <button class="language-button" data-lang="ru">Русский</button>
+      <button class="language-button" data-lang="es">Español</button>
+    </div>
+
+    <button class="theme-toggle" id="theme-toggle" type="button">
+      <span id="theme-icon">☾</span>
+      <span id="theme-text">Dark mode</span>
+    </button>
+
+    <footer>
+      © <span id="year"></span> ORYOL
+    </footer>
+  </main>
+
+  <script>
+    const translations = {
+      en: {
+        status: "UNDER CONSTRUCTION",
+        headline: "Website<br>coming soon.",
+        description: "We're working on our website and it will be available soon. Please check back later.",
+        language: "SELECT LANGUAGE",
+        dir: "ltr"
+      },
+      ar: {
+        status: "الموقع قيد الإنشاء",
+        headline: "الموقع<br>قريباً.",
+        description: "نعمل على تطوير موقعنا. يرجى زيارتنا مرة أخرى قريباً.",
+        language: "اختر اللغة",
+        dir: "rtl"
+      },
+      zh: {
+        status: "网站建设中",
+        headline: "网站<br>即将上线。",
+        description: "我们正在建设网站。请稍后再来访问。",
+        language: "选择语言",
+        dir: "ltr"
+      },
+      fr: {
+        status: "SITE EN CONSTRUCTION",
+        headline: "Site web<br>bientôt disponible.",
+        description: "Nous travaillons sur notre site web. Revenez bientôt.",
+        language: "CHOISIR LA LANGUE",
+        dir: "ltr"
+      },
+      ru: {
+        status: "САЙТ В РАЗРАБОТКЕ",
+        headline: "Сайт<br>скоро откроется.",
+        description: "Мы работаем над нашим сайтом. Пожалуйста, загляните позже.",
+        language: "ВЫБЕРИТЕ ЯЗЫК",
+        dir: "ltr"
+      },
+      es: {
+        status: "SITIO EN CONSTRUCCIÓN",
+        headline: "Sitio web<br>próximamente.",
+        description: "Estamos trabajando en nuestro sitio web. Vuelve pronto.",
+        language: "SELECCIONAR IDIOMA",
+        dir: "ltr"
+      }
+    };
+
+    const buttons = document.querySelectorAll(".language-button");
+
+    function setLanguage(lang) {
+      const translation = translations[lang];
+
+      if (!translation) return;
+
+      document.documentElement.lang = lang;
+      document.documentElement.dir = translation.dir;
+
+      document.getElementById("status").textContent = translation.status;
+      document.getElementById("headline").innerHTML = translation.headline;
+      document.getElementById("description").textContent = translation.description;
+      document.getElementById("language-label").textContent = translation.language;
+
+      buttons.forEach(button => {
+        button.classList.toggle("active", button.dataset.lang === lang);
+      });
+
+      try {
+        localStorage.setItem("oryol-language", lang);
+      } catch (error) {
+        // The page still works if browser storage is unavailable.
+      }
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        setLanguage(button.dataset.lang);
+      });
+    });
+
+    // Light and dark mode
+
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeIcon = document.getElementById("theme-icon");
+    const themeText = document.getElementById("theme-text");
+
+    function setTheme(theme) {
+      const isDark = theme === "dark";
+
+      document.body.classList.toggle("dark", isDark);
+
+      themeIcon.textContent = isDark ? "☀" : "☾";
+      themeText.textContent = isDark ? "Light mode" : "Dark mode";
+
+      document.querySelector('meta[name="theme-color"]').content =
+        isDark ? "#171717" : "#ffffff";
+
+      try {
+        localStorage.setItem("oryol-theme", theme);
+      } catch (error) {
+        // The page still works if browser storage is unavailable.
+      }
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.body.classList.contains("dark");
+      setTheme(isDark ? "light" : "dark");
+    });
+
+    let savedTheme = "light";
+
+    try {
+      savedTheme = localStorage.getItem("oryol-theme") || "light";
+    } catch (error) {
+      // Use light mode if browser storage is unavailable.
+    }
+
+    setTheme(savedTheme === "dark" ? "dark" : "light");
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    let savedLanguage = "en";
+
+    try {
+      savedLanguage = localStorage.getItem("oryol-language") || "en";
+    } catch (error) {
+      // Use English if browser storage is unavailable.
+    }
+
+    setLanguage(translations[savedLanguage] ? savedLanguage : "en");
+  </script>
+</body>
+</html>
